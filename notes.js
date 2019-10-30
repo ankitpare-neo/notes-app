@@ -12,7 +12,7 @@ const addNote = function (title, body) {
 
     if (duplicateNotes.length === 0) {
         notes.push({
-            title: title,
+            title: title,    
             body: body
         })
         saveNotes(notes)

@@ -47,4 +47,26 @@ yargs.command({
   }
 })
 
+
+
+yargs.command({
+  command:'update',
+  describe:'Updated functionality',
+  builder:{
+  title: {
+    describe: 'Note title',
+    demandOption: true,
+    type: 'string'
+  },
+    body:{
+      describe:'Body Data',
+      demandOption:true,
+      type:true
+    }
+},
+  handler: function(argv){
+    console.log('Data is updated successfully '+ argv.body);
+  }
+})
+
 yargs.parse();
