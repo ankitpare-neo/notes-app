@@ -70,23 +70,17 @@ yargs.command({
 })
 
 yargs.command({
-  command:'remove',
-  describe:'Remove functionality',
-  builder:{
-  title: {
-    describe: 'Remove Note title',
-    demandOption: true,
-    type: 'string'
-  },
-    body:{
-      describe:'Remove Body Data',
-      demandOption:true,
-      type:'string'
+    command: 'remove',
+    describe: 'Remove a note',
+    builder: {
+        title: {
+            describe: 'Note title',
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function (argv) {
+        notes.removeNote(argv.title)
     }
-},
-  handler: function(argv){
-    console.log('Data is Removed successfully '+ argv.body);
-    notes.removeNote(argv.title, argv.body)
-  }
 })
 yargs.parse();

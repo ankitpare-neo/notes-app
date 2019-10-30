@@ -21,6 +21,14 @@ const addNote = function (title, body) {
         console.log('Note title taken!')
     }
 }
+const removeNotes = function(title){
+    // console.log("Note is Removed");
+    const notes = loadNotes();
+    const notesToKeep = notes.filter((note)=>{
+        return note.title !==title;
+    })
+       saveNotes(notesToKeep);
+}
 
 const saveNotes = function (notes) {
     const dataJSON = JSON.stringify(notes)
@@ -37,9 +45,7 @@ const loadNotes = function () {
     }
 }
 
-const removeNotes = function(){
-    console.log("Note is Removed");
-}
+
 module.exports = {
     getNotes: getNotes,
     addNote: addNote,
