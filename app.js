@@ -83,4 +83,39 @@ yargs.command({
         notes.removeNote(argv.title)
     }
 })
+
+yargs.command({
+  command : 'listNote',
+  describe : 'Listing of Data',
+  // builder:{
+  //   title :{
+  //     describe: 'List Note title',
+  //     demandOption: true,
+  //     type: 'string'
+  //   },
+  //   title :{
+  //     describe: 'List Note Body',
+  //     demandOption: true,
+  //     type: 'string'
+  //   }
+  // },
+  handler: function (argv) {
+    notes.listNote(argv.title)
+}
+})
+
+yargs.command({
+  command: 'read',
+  describe: 'Read a note',
+  builder: {
+      title: {
+          describe: 'Note title',
+          demandOption: true,
+          type: 'string'
+      }
+  },
+  handler(argv) {
+      notes.readNote(argv.title)
+  }
+})
 yargs.parse();
